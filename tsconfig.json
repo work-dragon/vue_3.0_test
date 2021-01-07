@@ -9,7 +9,8 @@
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true, // 允许从没有设置默认导出的模块中默认导入
+    "strictPropertyInitialization": false, // 定义一个变量就必须给它一个初始值
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
