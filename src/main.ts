@@ -3,6 +3,10 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import ElementPlus from "element-plus";
+// 基础样式
+import './styles/index.scss';
+
+// element样式
 import "element-plus/lib/theme-chalk/index.css";
 
 // 将有需要的东西加载进来后全部塞到 public index.html 的 id(app)

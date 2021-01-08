@@ -1,0 +1,36 @@
+.shadow {
+  box-shadow: 0px 2px 4px 0px rgba($color: #000, $alpha: 0.075);
+  &-large {
+    box-shadow: 0px 4px 8px 0px rgba($color: #000, $alpha: 0.05);
+  }
+  &-small {
+    box-shadow: 0px 3px 6px 0px rgba($color: #000, $alpha: 0.1);
+  }
+  &-mini {
+    box-shadow: 0px 1px 4px 0px rgba($color: #000, $alpha: 0.05);
+  }
+}
+
+$type: (
+  primary: $blue,
+  success: $green,
+  warning: $orange-dark,
+  danger: $red,
+);
+
+@each $key, $val in $type {
+  .shadow-#{$key} {
+    box-shadow: 0px 2px 4px 0px rgba($color: $val, $alpha: 0.075);
+    &-large {
+      box-shadow: 0px 4px 8px 0px rgba($color: $val, $alpha: 0.25);
+    }
+    &-small {
+      box-shadow: 0px 3px 6px 0px rgba($color: $val, $alpha: 0.1);
+    }
+    &-mini {
+      box-shadow: 0px 1px 4px 0px rgba($color: $val, $alpha: 0.05);
+    }
+  }
+}
+
+

@@ -1,0 +1,45 @@
+#app .text {
+  &-left {
+    text-align: left;
+  }
+  &-right {
+    text-align: right;
+  }
+  &-center {
+    text-align: center;
+  }
+  &-justify {
+    text-align: justify;
+  }
+  &-nowrap {
+    text-align: nowrap;
+  }
+  &-lowercase {
+    text-transform: lowercase;
+  }
+  &-uppercase {
+    text-transform: uppercase;
+  }
+  &-capitalize {
+    text-transform: capitalize;
+  }
+
+
+
+  &-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+  &-ellipsis-l2 {
+    @extend .text-ellipsis;
+    -webkit-line-clamp: 2;
+  }
+  &-ellipsis-l3 {
+    @extend .text-ellipsis;
+    -webkit-line-clamp: 3;
+  }
+
+}
