@@ -3,8 +3,15 @@ module.exports = {
   publicPath: process.env.NODE_ENV === "production" ? "" : "/",
   // 输出文件目录
   outputDir: process.env.NODE_ENV === "production" ? "dist" : "devDist",
-  // eslint-loader 是否在保存的时候检查
+
+  // 是否在保存的时候使用 `eslint-loader` 进行检查。
+  // 有效的值：`ture` | `false` | `"error"`
+  // 当设置为 `"error"` 时，检查出的错误会触发编译失败。
   lintOnSave: false,
+
+  // 放置静态资源的地方 (js/css/img/font/...)
+  // assetsDir: "public/assets",
+
   /**
    *  webpack 配置
    */
@@ -33,31 +40,50 @@ module.exports = {
         // @/ 是 src/ 的别名
         // 注意：在 sass-loader v8 中，这个选项名是 "prependData"
         prependData: '@import "~@/styles/index.scss";',
-      }
+      },
     },
-    // 启用 css modules for all css / pre -processor files
-    modules: false
   },
+
+  // 在生产环境下为 Babel 和 TypeScript 使用 `thread-loader`
+  // 在多核机器下会默认开启。
   parallel: require("os").cpus().length > 1,
+
   /**
    * PWA 插件配置相关配置
+   * 查阅 https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli-plugin-pwa/README.md
    */
   pwa: {},
+
   // webpack-dev-server 相关配置
   devServer: {
     open: true, // 编译完成是否打开网页
     host: "0.0.0.0", //指定使用地址，默认localhost 0.0.0.0 代表可以被外界访问
     port: 8080, // 访问端口
-    https: true, // 编译失败时刷新页面
+    https: true, // 是不是https请求
     hot: true, // 开启热加载
     hotOnly: false,
-    proxy: null, // 设置代理
+    proxy: null,
+    // {
+    // 设置代理
+    // /ts代表一个普通的字符串可以是/api或者其他，
+    // "/ts": {
+    //   // 代理到哪个地址
+    //   target: "http://11.11.11.111:8080/",
+    //   // 开启代理：在本地创建一个虚拟服务器，发送请求、接受数据，不存在跨域问题。
+    //   changeOrigin: true,
+    //   ws: true,
+    //   // 匹配所有的/ts替换为空
+    //   pathRewrite: {
+    //     "^/ts": "",
+    //   },
+    // },
+    // },
     overlay: {
       // 全屏模式下是否显示脚本错误
       warnings: true,
-      errors: true
-    }
-  }
+      errors: true,
+    },
+  },
   /**
    * 第三方插件配置
    */
