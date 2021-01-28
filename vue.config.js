@@ -1,8 +1,21 @@
+console.log(`当前项目为${process.env.VUE_APP_PROJECT}`)
 module.exports = {
-  // 基本路径
+  // 基本路径 - 部署应用包时的基本 URL
   publicPath: process.env.NODE_ENV === "production" ? "" : "/",
-  // 输出文件目录
+  // 输出文件目录 - 当运行 build 时构建文件的目录
   outputDir: process.env.NODE_ENV === "production" ? "dist" : "devDist",
+
+  // pages: {
+    // index: {
+      // page 的入口
+     // entry: `src/project/${process.env.VUE_APP_PROJECT}/main.ts`,
+    //},
+    // 当使用只有入口的字符串格式时，
+    // 模板会被推导为 `public/subpage.html`
+    // 并且如果找不到的话，就回退到 `public/index.html`。
+    // 输出文件名会被推导为 `subpage.html`。
+    // subpage: "src/subpage/main.js",
+  //},
 
   // 是否在保存的时候使用 `eslint-loader` 进行检查。
   // 有效的值：`ture` | `false` | `"error"`
