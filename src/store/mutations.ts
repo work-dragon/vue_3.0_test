@@ -1,8 +1,10 @@
+import { MutationTree } from "vuex";
+
 interface MutationsState {
   count: number;
 }
 
-const Mutations = {
+const Mutations: MutationTree<any> = {
   /**
    * @param state 获取全局共享数据state
    * @param step 一次增加多少

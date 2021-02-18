@@ -2,6 +2,7 @@
   <div>
     <p>store-add</p>
     <p>当前计数器为{{ $store.state.count }}</p>
+    <p>{{ $store.getters.showNum }}</p>
     <button @click="handleClickAdd">+1</button>
     <button @click="handleClickAddSync">+1 sync</button>
   </div>
