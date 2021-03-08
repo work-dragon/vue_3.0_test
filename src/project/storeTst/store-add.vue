@@ -11,11 +11,22 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useStore } from "vuex";
+import _Promise from "../promise/index";
 export default defineComponent({
   setup() {
     const store = useStore();
     const handleClickAdd = () => {
       store.commit("add", 10);
+      new _Promise((resolve, rejece) => {
+        resolve("123132");
+      }).then(
+        (res: any) => {
+          console.log(res);
+        },
+        (rej: any) => {
+          console.log("rej" + rej);
+        },
+      );
     };
     const handleClickAddSync = () => {
       store.dispatch("addSync");
